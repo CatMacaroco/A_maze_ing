@@ -50,6 +50,14 @@ def _coords_to_path(coords: list[tuple[int, int]]) -> str:
 
 
 def main(argv: list[str]) -> int:
+    """Program entry point.
+    Parses command-line arguments, loads configuration, generates and solves
+    a maze, writes output, and starts the visualization UI.
+    Returns:
+        Exit status code:
+        - 0 on success
+        - 1 on runtime/config errors
+        - 2 on invalid usage"""
     if len(argv) != 2:
         print("Usage: python3 a_maze_ing.py <config.txt>")
         return 2
@@ -61,8 +69,15 @@ def main(argv: list[str]) -> int:
         print(f"{C.BG_RED}Error:{C.RESET} {e}")
         return 1
 
-    # TEMPORARY state provider (replace with real generator/solver)
     def get_state() -> tuple[Maze, str, set[tuple[int, int]]]:
+        """Generate a maze, compute its solution, and return its current state.
+        This function is called repeatedly by the UI loop to rebuild and
+        visualize the maze.
+        Returns:
+            A tuple containing:
+            - The generated Maze object
+            - The shortest path as a direction string
+            - A set of forbidden (x, y)"""
         # Build a fresh maze (all walls closed initially).
         maze = Maze(cfg.height, cfg.width, cfg.entry, cfg.exit)
 

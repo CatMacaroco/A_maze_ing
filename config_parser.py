@@ -6,6 +6,7 @@ from dataclasses import dataclass
 # same as def __init__(self, width: int, ...)
 @dataclass(frozen=True)
 class Config:
+    """Validated maze configuration values."""
     width: int
     height: int
     entry: tuple[int, int]
@@ -19,6 +20,7 @@ _REQUIRED_KEYS = {"WIDTH", "HEIGHT", "ENTRY", "EXIT", "OUTPUT_FILE", "PERFECT"}
 
 
 def _parse_bool(value: str) -> bool:
+    """Parse a boolean value from a string."""
     v = value.strip().lower()
     if v in {"true", "1", "yes", "y"}:
         return True
@@ -28,6 +30,7 @@ def _parse_bool(value: str) -> bool:
 
 
 def _parse_coord(value: str) -> tuple[int, int]:
+    """Parse a coordinate in the form 'x, y'."""
     parts = [p.strip() for p in value.split(",")]
     if len(parts) != 2:
         raise ValueError(f"Invalid coordinate: {value!r} (expected x, y).")
@@ -41,11 +44,9 @@ def _parse_coord(value: str) -> tuple[int, int]:
 
 
 def load_config(path: str) -> Config:
-    """
-    Load config file with KEY=VALUE lines.
+    """Load config file with KEY=VALUE lines.
     Ignores comments starting with '#'.
-    Raises ValueError with a clear message on invalid config.
-    """
+    Raises ValueError with a clear message on invalid config."""
     data: dict[str, str] = {}
 
     with open(path, "r", encoding="utf-8") as f:

@@ -13,6 +13,7 @@ WEST = 8
 
 @dataclass(frozen=True)
 class AsciiStyle:
+    """ANSI style settings for ASCII rendering."""
     wall_color: str = ""
     reset: str = "\033[0m"
 
@@ -32,6 +33,7 @@ _RESET = "\33[0m"
 
 
 def _has_wall(cell: int, bit: int) -> bool:
+    """Return True if wall bit is set."""
     return (cell & bit) != 0
 
 
@@ -41,6 +43,7 @@ def _cells_on_path(
     width: int,
     height: int,
 ) -> set[tuple[int, int]]:
+    """Return all cells visited by a path string."""
     x, y = entry
     if not (0 <= x < width and 0 <= y < height):
         raise ValueError(f"Entry out of bounds: {entry}")
@@ -73,6 +76,7 @@ def render_ascii(
     color_mode: int = 0,
     forbidden_cells: set[tuple[int, int]] | None = None,
 ) -> str:
+    """Render the maze as ASCII art."""
     grid: list[list[int]] = getattr(maze, "grid")
     height: int = getattr(maze, "height")
     width: int = getattr(maze, "width")
@@ -97,6 +101,7 @@ def render_ascii(
         path_cells = _cells_on_path(entry, path, width, height)
 
     def cwall(s: str) -> str:
+        """Color wall segments if enabled."""
         if not style.wall_color:
             return s
         return f"{style.wall_color}{s}{style.reset}"
@@ -145,6 +150,7 @@ def render_ascii(
 
 
 def _clear_screen() -> None:
+    """Clear the terminal screen."""
     os.system("cls" if os.name == "nt" else "clear")
 
 
@@ -153,6 +159,7 @@ def run_ui_loop(
     entry: tuple[int, int],
     exit_pos: tuple[int, int],
 ) -> None:
+    """Interactive terminal UI loop."""
     show_path = False
     color_mode = 0
 

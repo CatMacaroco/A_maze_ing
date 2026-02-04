@@ -4,6 +4,7 @@ from __future__ import annotations
 def _validate_maze_grid(grid: list[list[int]],
                         width: int,
                         height: int) -> None:
+    """Validate grid shape and cell values."""
     if len(grid) != height:
         raise ValueError("Grid height does not match maze.height")
     for y, row in enumerate(grid):
@@ -17,6 +18,7 @@ def _validate_maze_grid(grid: list[list[int]],
 
 
 def _format_coord(coord: tuple[int, int]) -> str:
+    """Format (x, y) as 'x,y'."""
     x, y = coord
     return f"{x},{y}"
 
@@ -28,16 +30,7 @@ def write_output(
     exit_pos: tuple[int, int],
     path: str,
 ) -> None:
-    """
-    Write maze output format required by the subject:
-
-    - Hex digit per cell, row by row, one row per line
-    - Empty line
-    - Entry coordinates line: "x,y"
-    - Exit coordinates line: "x,y"
-    - Shortest path string line: "NESW..."
-    - All lines end with '\n'
-    """
+    """Write maze grid, entry/exit, and path to output file."""
     grid: list[list[int]] = getattr(maze, "grid")
     height: int = getattr(maze, "height")
     width: int = getattr(maze, "width")
