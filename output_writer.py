@@ -1,6 +1,3 @@
-from __future__ import annotations
-
-
 def _validate_maze_grid(grid: list[list[int]],
                         width: int,
                         height: int) -> None:

@@ -1,53 +1,63 @@
 This project has been created as part of the 42 curriculum
-by cerkurt, cmacaroc.
+by **cerkurt** and **cmacaroc**.
+
 ---
 
-## Table of Content
 ## Index
 
-### A. Description
+## A. Description
 
-- [A.1 a-maze-ing](#a1-a-maze-ing)
-- [A.2 Project Overview](#a2-project-overview)
-- [A.3 Teamwork & Project Organization](#a3-teamwork--project-organization)
-  - [A.3.1 Configuration Parsing & Validation](#a31-configuration-parsing--validation)
-- [A.4 Core Concepts](#a4-core-concepts)
-  - [A.4.1 What is a Maze?](#a41-what-is-a-maze)
-- [A.5 Algorithms Used](#a5-algorithms-used)
-  - [A.5.1 Maze Generation — DFS (Depth-First Search)](#a51-maze-generation--dfs-depth-first-search)
-    - [A.5.1.a What is DFS in simple words?](#a51a-what-is-dfs-in-simple-words)
-  - [A.5.2 Maze Path Solving — BFS (Breadth-First Search)](#a52-maze-path-solving--bfs-breadth-first-search)
-    - [A.5.2.a What is BFS in simple words?](#a52a-what-is-bfs-in-simple-words)
-    - [A.5.2.b Making the Maze Non-Perfect (Optional)](#a52b-making-the-maze-non-perfect-optional)
-- [A.6 Coordinate System](#a6-coordinate-system)
-- [A.7 42 Marking Decoration (Conditional)](#a7-42-marking-decoration-conditional)
-- [A.8 Direction System as Dictionaries](#a8-direction-system-as-dictionaries)
-  - [A.8.1 Direction → Bit Value](#a81-direction--bit-value)
-  - [A.8.2 Direction → Movement Delta](#a82-direction--movement-delta)
-  - [A.8.3 Direction → Opposite Direction](#a83-direction--opposite-direction)
-  - [A.8.4 Benefits of Dictionaries](#a84-benefits-of-dictionaries)
-  - [A.8.5 Takeaway](#a85-takeaway)
-- [A.9 Public API](#a9-public-api)
-  - [A.9.1 Maze structure](#a91-maze-structure)
-  - [A.9.2 Maze generation (DFS)](#a92-maze-generation-dfs)
-  - [A.9.3 Extra paths (non-perfect maze)](#a93-extra-paths-non-perfect-maze)
-  - [A.9.4 Maze solving (BFS)](#a94-maze-solving-bfs)
-  - [A.9.5 42 decoration marking](#a95-42-decoration-marking)
-- [A.10 Project Structure](#a10-project-structure)
-- [A.11 AI Usage](#a11-ai-usage)
+- [A.1. a-maze-ing](#a1-a-maze-ing)
+- [A.2. Project Overview](#a2-project-overview)
+- [A.3. Teamwork & Project Organization](#a3-teamwork--project-organization)
+  - [A.3.1. A Real Helper Contract: INTERFACES.md](#a31-a-real-helper-contract-interfacesmd)
+- [A.4. Configuration Parsing & Validation](#a4-configuration-parsing--validation)
+- [A.5. Core Concepts](#a5-core-concepts)
+  - [A.5.1. What is a Maze?](#a51-what-is-a-maze)
+- [A.6. Algorithms Used](#a6-algorithms-used)
+  - [A.6.1. Maze Generation — DFS (Depth-First Search)](#a61-maze-generation--dfs-depth-first-search)
+    - [A.6.1.a. What is DFS in simple words?](#a61a-what-is-dfs-in-simple-words)
+  - [A.6.2. Maze Path Solving — BFS (Breadth-First Search)](#a62-maze-path-solving--bfs-breadth-first-search)
+    - [A.6.2.a. What is BFS in simple words?](#a62a-what-is-bfs-in-simple-words)
+    - [A.6.2.b. Making the Maze Non-Perfect (Optional)](#a62b-making-the-maze-non-perfect-optional)
+- [A.7. Coordinate System](#a7-coordinate-system)
+- [A.8. 42 Marking Decoration (Conditional)](#a8-42-marking-decoration-conditional)
+- [A.9. Direction System as Dictionaries](#a9-direction-system-as-dictionaries)
+  - [A.9.1. Direction → Bit Value](#a91-direction--bit-value)
+  - [A.9.2. Direction → Movement Delta](#a92-direction--movement-delta)
+  - [A.9.3. Direction → Opposite Direction](#a93-direction--opposite-direction)
+  - [A.9.4. Benefits of Dictionaries](#a94-benefits-of-dictionaries)
+  - [A.9.5. Takeaway](#a95-takeaway)
+- [A.10. Project Structure](#a10-project-structure)
+- [A.11. AI Usage](#a11-ai-usage)
 
-### B. Instructions
-- [B.1 How to Run](#b1-how-to-run)
-  - [B.1.1 Clone the repository](#b11-clone-the-repository)
-  - [B.1.2 Run with a config file](#b12-run-with-a-config-file)
-  - [B.1.3 Configuration File Example](#b13-configuration-file-example)
+## B. Instructions
 
-### C. Resources
-- [C.1 Maze Generation & Graph Traversal](#c1-maze-generation--graph-traversal)
-- [C.2 Python & Data Structures](#c2-python--data-structures)
+- [B.1. How to Run](#b1-how-to-run)
+  - [B.1.1. Clone the Repository](#b11-clone-the-repository)
+  - [B.1.2. Run with a Config File](#b12-run-with-a-config-file)
+  - [B.1.3. Run with the Makefile](#b13-run-with-the-makefile)
+    - [B.1.3.a. Default Usage](#b13a-default-usage)
+    - [B.1.3.b. Cleanup](#b13b-cleanup)
+- [B.2. Public API and Usage](#b2-public-api-and-usage)
+  - [B.2.1. Sections of the Public API](#b21-sections-of-the-public-api)
+  - [B.2.2. Install as a Package](#b22-install-as-a-package)
+  - [B.2.3. Quick API Example](#b23-quick-api-example)
 
-### D. Final Notes
-- [Final Notes](#d-final-notes)
+## C. Resources
+
+- [C.1. Maze Generation & Graph Traversal](#c1-maze-generation--graph-traversal)
+- [C.2. Python & Data Structures](#c2-python--data-structures)
+
+## D. Future improvements
+
+- [D. Future Improvements](#d-future-improvements)
+
+## E. Final notes
+
+- [E. Final Notes](#e-final-notes)
+
+
 ---
 
 # A. Description
@@ -56,8 +66,9 @@ by cerkurt, cmacaroc.
 
 # A.1. a-maze-ing
 
-The goal of the project is to generate and solve mazes programmatically.  
-The program is able to:
+The goal of the project is to generate and solve mazes programmatically.
+
+The program can:
 - generate **perfect** and **non-perfect** mazes,
 - guarantee maze validity (bounds, connectivity, wall coherence),
 - find the **shortest path** between an entry and an exit,
@@ -68,13 +79,9 @@ The project is written in **Python**, with a strong focus on:
 - clean architecture,
 - clear separation of responsibilities,
 - algorithmic correctness,
-- and readability for future students.
+- readability for future students.
 
-The project is designed to be
-    **educational**,
-    **modular**, and
-    **easy to reason about**,
-from beginners for beginners.
+This project is designed to be **educational**, **modular**, and **easy to reason about**, from beginners for beginners.
 
 ---
 
@@ -93,13 +100,13 @@ This program can:
 
 ## A.3. Teamwork & Project Organization
 
-This project was developed by two people, and we intentionally split the
-responsibilities by problem domain, not by file size.
+This project was developed by two people, and we intentionally split
+responsibilities by **problem domain**, not by file size.
 
 The maze project naturally breaks into two big concerns:
 
-1.	Maze logic & algorithms
-2.	Input / output, configuration, and display (UI)
+1. Maze logic & algorithms
+2. Input/output, configuration, and display (UI)
 
 We used this natural separation to work in parallel without blocking each
 other.
@@ -107,77 +114,90 @@ other.
 Person A — Maze Logic (Core Algorithms)
 Responsible for:
 
-	•	Maze data structure
-	•	Wall representation (bitmask logic)
-	•	Maze generation (DFS)
-	•	Maze solving (BFS)
-	•	Validation rules (connectivity, borders, coherence)
-	•	Non-perfect maze
-    •	42 marking decoration
+- Maze data structure
+- Wall representation (bitmask logic)
+- Maze generation (DFS)
+- Maze solving (BFS)
+- Validation rules (connectivity, borders, coherence)
+- Non-perfect maze (extra openings)
+- 42 marking decoration
 
-This work lives mostly inside the maze_files/ package.
+This work lives mostly inside the `maze_files/` package.
 
-Person B — Application Layer & UX
+Person B — Application Layer & UX/UI
 Responsible for:
 
-	•	CLI entrypoint
-	•	Config parsing (config.txt)
-	•	Output formatting
-	•	Visualization
-	•	Program flow (when generation, solving, and output happen)
+- CLI entrypoint
+- Config parsing (`config.txt`)
+- Output formatting
+- Visualization
+- Program flow (when generation, solving, and output happen)
 
 This work lives at the root of the repository and treats the maze logic as a
 reusable module.
 
-This separation allowed:
+Before writing any code, we created a small but strict shared contract:
+`INTERFACES.md`.
 
-	•	Independent development
-	•	Clear ownership
-	•	Easy debugging
-	•	Minimal merge conflicts
+### A.3.1 A real helper contract: *INTERFACES.md*
+
+This file defines:
+
+- what a `Maze` must expose,
+- how the grid is indexed (`maze.grid[y][x]`),
+- how coordinates are represented (`(x, y)`),
+- how walls are encoded (bitmask values),
+- what functions expect and return.
+
+In other words:
+
+We agreed on the rules first, then coded freely.
+
+Thanks to this:
+
+- nobody had to guess how the other side works,
+- no refactoring was needed later,
+- files merged cleanly on the first try,
+- no “but I thought it worked like this” moments.
 
 ---
 
-### A.3.1 Configuration Parsing & Validation
+## A.4. Configuration Parsing & Validation
 
-All user input for the program is provided through a simple configuration
-file (`config.txt`).  
-Parsing and validation are handled centrally by `config_parser.py`.
+All user input for the CLI is provided through a simple configuration file
+(`config.txt`). Parsing and validation are handled by `config_parser.py`.
 
-This design ensures that:
+This design ensures:
+- maze logic never deals with raw strings,
+- invalid inputs are rejected early,
+- the rest of the program works with **trusted, typed data**.
 
-- Maze logic never has to deal with raw strings
-- All invalid inputs are rejected early
-- The rest of the program works with **trusted, typed data**
-
-⸻
-
-#### Parsing Strategy
 
 The configuration file follows a strict `KEY=VALUE` format.
 
 Example:
 
+```
 WIDTH=20
 HEIGHT=10
 ENTRY=0,0
 EXIT=19,9
-PERFECT=False
+PERFECT=True
 SEED=42
-
+```
 ⸻
 
 #### Parsing Steps
 
 Parsing is performed in three clear phases:
 
-1. **Lexical parsing**
+1. Lexical parsing
    - Read the file line by line
    - Strip whitespace
    - Ignore empty lines and comments starting with `#`
    - Require `KEY=VALUE` syntax (a missing `=` triggers an error)
 
-2. **Validation and type conversion**
+2. Validation and type conversion
    - Required keys must be present: `WIDTH`, `HEIGHT`, `ENTRY`, `EXIT`,
      `OUTPUT_FILE`, `PERFECT`
    - Values are converted into typed Python data:
@@ -190,7 +210,7 @@ Parsing is performed in three clear phases:
      - same validation for `exit`
    - Entry and exit must not be the same coordinate
 
-3. **Configuration object creation**
+3. Configuration object creation
    - Once validated, values are stored in an immutable dataclass:
 
 ```python
@@ -203,80 +223,14 @@ class Config:
     output_file: str
     perfect: bool
     seed: int | None = None
-
+```
 ⸻
-
-**A real helper contract: *INTERFACES.md***
-
-Before writing any code, we created a small but strict shared contract as
-INTERFACES.md.
-
-This file defines:
-
-	•	What a Maze must expose
-	•	How the grid is indexed (maze.grid[y][x])
-	•	How coordinates are represented ((x, y))
-	•	How walls are encoded (bitmask values)
-	•	What functions expect and return
-
-In other words:
-
-We agreed on the rules first, then coded freely.
-
-Because of this:
-
-	•	No one had to guess how the other side works
-	•	No refactoring was needed later
-	•	Files merged cleanly on the first try
-	•	No “but I thought it worked like this” moments
-
-⸻
-
-Why This Made the Merge Easy
-
-When it was time to merge:
-
-	•	Both sides already respected the same data shapes
-	•	Function signatures matched exactly
-	•	No logic was duplicated
-	•	No rewrites were needed
-
-We could simply:
-
-	1.	Import the maze logic
-	2.	Plug it into the CLI flow
-	3.	Run the program
-
-Everything worked immediately.
-
-This approach turned what is usually a stressful merge into a snap of a finger
-time event.
-
-⸻
-
-Takeaway
-
-Using:
-
-	•	a clear interface contract
-	•	a clean responsibility split
-	•	and early agreement on data structures
-
-allowed us to:
-
-	•	Work faster
-	•	Make fewer mistakes
-	•	Keep the code readable
-	•	Avoid merge conflicts entirely
-
-If this project were extended or reused, the same structure would still scale
-cleanly.
 
 ---
 
-## A.4. Core Concepts
+## A.5. Core Concepts
 
-### A.4.1. What is a Maze?
+### A.5.1. What is a Maze?
 A maze is a grid of cells.
 Each cell has **four possible walls**:
 
@@ -294,11 +248,12 @@ Internally, walls are stored using **bit masks** (numbers from 0–15).
 
 ---
 
-## A.5. Algorithms Used
+## A.6. Algorithms Used
 
-## A.5.1. Maze Generation — DFS (Depth-First Search)
+### A.6.1. Maze Generation — DFS (Depth-First Search)
 
-### A.5.1.a. What is DFS in simple words?
+#### A.6.1.a. What is DFS in simple words?
+
 DFS explores the maze by:
 
 - Starting from the entry cell.
@@ -324,9 +279,9 @@ In a perfect maze:
 
 ---
 
-## A.5.2. Maze Path Solving — BFS (Breadth-First Search)
+### A.6.2. Maze Path Solving — BFS (Breadth-First Search)
 
-### A.5.2.a. What is BFS in simple words?
+#### A.6.2.a. What is BFS in simple words?
 BFS is used to **solve the maze** and BFS explores the maze layer by layer.
 
 1. One step away from the start
@@ -348,18 +303,19 @@ NNEESWSS
 ```
 ---
 
-## A.5.2.b. Making the Maze Non-Perfect (Optional)
+#### A.6.2.b. Making the Maze Non-Perfect (Optional)
 
 If `PERFECT=False` in the config:
 
-- The maze is first generated as perfect (using DFS)
-- Then **extra walls are opened**
-- This creates **multiple possible paths**
+- the maze is first generated as perfect (DFS)
+- then **extra walls are opened**
+- this creates **multiple possible paths**
 
-This step does **not break connectivity** — it only adds choices.
+This step does not break connectivity — it only adds choices.
+
 ---
 
-## A.6. Coordinate System
+## A.7. Coordinate System
 
 - Coordinates are always `(x, y)`
 - `(0, 0)` is the **top-left** corner
@@ -374,7 +330,7 @@ maze.grid[y][x]
 
 ---
 
-## A.7. 42 Marking Decoration (Conditional)
+## A.8. 42 Marking Decoration (Conditional)
 
 If the maze is large enough both as size also the margin wise:
 
@@ -396,25 +352,18 @@ This ensures:
 
 ---
 
-## A.8. Direction System as Dictionaries
+## A.9. Direction System as Dictionaries
 
-In this project, directions (North, East, South, West) are used everywhere:
+Directions (N/E/S/W) are used everywhere (carving, DFS, BFS, validators,
+decoration). Instead of many `if/elif` statements, we keep direction logic in dictionaries:
 
-    • carving walls
-    • checking neighbors
-    • DFS generation
-    • BFS path finding
-    • validators
-    • the 42 decoration logic
+- direction → bit value (which wall bit?)
+- direction → movement delta (how `(x, y)` changes?)
+- direction → opposite direction (which wall to update on the neighbor?)
 
-Instead of handling directions with many if/elif statements, we use direction
-dictionaries defined in direction_definitions.py.
+---
 
-This keeps the code simple, consistent, and easier to understand.
-
-⸻
-
-### A.8.1. Direction → Bit Value
+### A.9.1. Direction → Bit Value
 
 Each cell in the maze stores its walls as a bitmask.
 
@@ -438,7 +387,7 @@ Without this dictionary, we would need to hard-code numbers everywhere.
 
 ⸻
 
-### A.8.2. Direction → Movement Delta
+### A.9.2. Direction → Movement Delta
 
 When moving in the maze, each direction changes (x, y) differently:
 
@@ -459,7 +408,7 @@ Instead of writing movement logic four times, we write it once.
 
 ⸻
 
-### A.8.3. Direction → Opposite Direction
+### A.9.3. Direction → Opposite Direction
 
 When carving or closing a wall, both cells must be updated.
 
@@ -480,7 +429,7 @@ This ensures:
 
 ⸻
 
-### A.8.4. Benefits of Dictionaries
+### A.9.4. Benefits of Dictionaries
 
 Using direction dictionaries allows the algorithms to be written conceptually:
 
@@ -504,7 +453,7 @@ All of that becomes possible without rewriting DFS or BFS.
 
 ⸻
 
-#### A.8.5. Takeaway
+### A.9.5. Takeaway
 
 Dictionaries turn repeated logic into data. Instead of repeating code,
 we let the data describe:
@@ -518,70 +467,6 @@ same direction system.
 
 ---
 
-## A.9. Public API
-
-The main reusable entry point of the project is:
-
-- `mazegen.generate_maze(...)`
-
-This function:
-1. creates a maze,
-2. generates paths,
-3. optionally applies the 42 decoration,
-4. validates the maze,
-5. solves it using BFS,
-6. returns the final maze and solution path.
-
-This allows the maze logic to be reused independently from the CLI.
-
-These are the **intended public functions** you can import and use.
-
-### A.9.1. Maze structure
-
-```python
-from maze_files.maze_definitions import Maze
-```
-
-Create a maze:
-
-```python
-maze = Maze(height, width, entry, exit)
-```
-
-### A.9.2. Maze generation (DFS)
-
-```python
-from maze_files.dfs_maze_generator import dfs_maze_generator
-
-dfs_maze_generator(maze, forbidden_cells, seed)
-```
-
-### A.9.3. Extra paths (non-perfect maze)
-
-```python
-from maze_files.multiple_path_maze import imperfect_maze
-
-imperfect_maze(maze)
-```
-
-### A.9.4. Maze solving (BFS)
-
-```python
-from maze_files.bfs_shortest_path_solver import bfs_shortest_path_solver
-
-path = bfs_shortest_path_solver(maze)
-```
-
-### A.9.5. 42 decoration marking
-
-```python
-from maze_files.forty_two_marking import fourty_two_marking
-
-forbidden_cells = fourty_two_marking(maze)
-```
-
----
-
 ## A.10. Project Structure
 
 ```
@@ -592,8 +477,9 @@ forbidden_cells = fourty_two_marking(maze)
 ├── output_writer.py                    # Writes output file in required format
 ├── visualizer.py                       # ASCII/colored terminal display (UI)
 ├── config.txt                          # Example configuration (input)
-├── Makefile                            # Build/run helpers (if you use it)
+├── Makefile                            # Build/run helpers
 ├── README.md
+├── pyproject.toml
 └── maze_files/                         # Core library (public API lives here)
     ├── __init__.py                     # Marks this folder as a Python package
     ├── maze_definitions.py             # Maze data structure
@@ -632,31 +518,131 @@ No code was copied blindly.
 ### B.1.1. Clone the repository
 
 ```bash
-git clone <repo_url>
-cd a-maze-ing
+git clone git@vogsphere-v2.codam.nl:vogsphere/intra-uuid-49c3cac2-0f24-4a32-9b53-984f479338af-7158877-cerkurt a_maze_ing
+cd a_maze_ing
 ```
 
-### B.1.2. Run with a config file
+### B.1.2. Run with a Config File
 
-1. Edit `config.txt` to set maze size, entry, exit, and options.
-2. Run the program:
+1. Edit `config.txt`.
+2. Run:
 
 ```bash
 python3 a_maze_ing.py config.txt
 ```
 
+### B.1.3. Run with the Makefile
+This repository includes a `Makefile` to run the program with short commands.
+
+#### B.1.3.a. Default usage
+
+```bash
+make run
+```
+
+Show all available commands:
+```bash
+make help
+```
+
+Run with a different config file:
+```bash
+make run CFG=your_config.txt
+```
+
+Generate output and print it:
+```bash
+make output
+```
+
+#### B.1.3.b. Cleanup
+
+Remove Python cache files:
+```bash
+make clean
+```
+
+Remove cache files and the output file:
+```bash
+make distclean
+```
+
 ---
 
-## B.1.3. Configuration File Example
+## B.2. Public API and Usage
 
+This repository can be used in two ways:
+
+1) **As a CLI program** (run `a_maze_ing.py` with a config file)
+2) **As a reusable Python package** (import `mazegen` and `maze_files`)
+
+The **main public API** is `mazegen.py` at the repository root.
+
+### B.2.1. Sections of the Public API
+
+`mazegen.py` exposes two main pieces:
+
+- `ConfigGen`: a small dataclass holding generation options
+- `MazeGenerator`: a high-level wrapper that runs generation + solving
+
+Key methods:
+- `MazeGenerator.generate` (property): builds and generates the maze
+- `MazeGenerator.solve_maze_path()`: runs BFS and returns a coordinate path
+- `MazeGenerator.coords_to_directions(coords)`: converts a coordinate path to a `"NESW..."` string
+
+### B.2.2. Install as a package
+
+From the root of the repository:
+
+Toggle to virtual environment:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 ```
-WIDTH=20
-HEIGHT=10
-ENTRY=0,0
-EXIT=19,9
-PERFECT=False
-SEED=42
+
+Install the pubic API:
+```bash
+python3 -m pip install .
 ```
+
+Confirm the installation was successful:
+```python
+python3 -c "from mazegen import ConfigGen, MazeGenerator; print('API import OK')"
+```
+
+### B.2.3. Quick API example
+
+Toggle to python interactive shell:
+```bash
+python
+```
+
+Test with example cfg demo:
+```python
+from mazegen import ConfigGen, MazeGenerator
+
+cfg = ConfigGen(
+    width=10,
+    height=5,
+    entry=(0, 0),
+    exit=(9, 4),
+    seed=42,
+    perfect=True,
+    marking_42=True,
+)
+
+gen = MazeGenerator(cfg)
+maze = gen.generate()
+coords = gen.solve_maze_path()
+path_str = gen.coords_to_directions(coords)
+
+print("coords:", coords[:5], "...")   # first few append as demo display
+print("path:", path_str)
+```
+
+Notes:
+- `coords_path` is a list of `(x, y)` coordinates from entry → exit.
+- `path_str` is the same path encoded as directions (`N`, `E`, `S`, `W`).
 
 ---
 
@@ -665,41 +651,61 @@ SEED=42
 The following resources were used during the development of this project to
 understand algorithms, data structures, and design decisions.
 
-### C.1. Maze Generation & Graph Traversal
+### C.1. Maze generation & graph traversal
 - Invent with Python — *Maze generation algorithms*  
   https://inventwithpython.com/recursion/chapter11.html 
-  Used to understand common maze generation approaches and the idea of perfect mazes.
+  Common maze generation approaches and the idea of perfect mazes.
 
 - Python Official — *Maze creation in Python*  
   https://discuss.python.org/t/maze-creation-in-python/77030  
-  Used to understand how DFS works and how it can be applied to maze generation.
+  How DFS works and how it can be applied to maze generation.
 
 - Wikipedia — *Breadth-First Search (BFS)*  
   https://en.wikipedia.org/wiki/Breadth-first_search  
-  Used to understand shortest-path guarantees in unweighted graphs.
+  Shortest-path guarantees in unweighted graphs.
 
 ### C.2. Python & Data Structures
 - Python Official Documentation — *collections.deque*  
   https://docs.python.org/3/library/collections.html#collections.deque  
-  Used for efficient queue operations in BFS.
+  Efficient queue operations in BFS.
 
 - Python Official Documentation — *set*  
   https://docs.python.org/3/library/stdtypes.html#set  
-  Used to efficiently track visited coordinates.
+  Eefficiently track visited coordinates.
 
 - Python Official Documentation — *random*  
   https://docs.python.org/3/library/random.html  
-  Used to create deterministic maze generation via seeding.
+  Create deterministic maze generation via seeding.
+
+- Python Official Documentation — *Stacks and Queues*  
+  https://realpython.com/queue-in-python/  
+  Understand process of abstract data structures.
+
+- W3 Schools — *Queues with Python*  
+  https://realpython.com/queue-in-python/  
+  Understand process of abstract data structures.
+
+- Medium article — *Stack and Queue Implementations*  
+  https://medium.com/codex/understanding-stack-and-queue-implementations-in-python-a-theoretical-approach-e345e9c1362d  
+  Understand stacks and queues.
+
+- Datacamp — *Recursion in Python*  
+  https://www.datacamp.com/tutorial/recursion-in-python  
+  Understand general concept of recursion in Python and the limitations.
+
+- Real Python — *Recursion in Python*  
+  https://realpython.com/python-recursion/  
+  Understand general concept of recursion in Python and the limitations.
 
 ---
 
-# D. Final Notes
+# D. Future improvements
 
-If you are new to:
+- Add generation/solving animations (DFS/BFS as generators + terminal rendering)
+- Improve visualization (colors, optional UI modes)
 
-- DFS
-- BFS
-- graph traversal
-- grid-based algorithms
+---
 
-You are at the a_maze_ing spot! 🧠✨
+# E. Final Notes
+
+If you are new to DFS/BFS/graph traversal, this project is a nice place to practice.
